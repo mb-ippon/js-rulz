@@ -31,5 +31,13 @@ Pour les dépendances du front, exécuter :
 Browsersync est utilisé pour exposer l'api Back-end et les ressources statiques de l'application. Pour le lancer, exécuter :
 
     npm start
-    
+
 Pour configurer le serveur, se référer à la documentation de [browsersync](https://www.browsersync.io/)
+
+### Analyse de code
+
+Eslint est utilisé pour analyser le code JavaScript de l'application. Pour le lancer, exécuter :
+
+    npm run lint
+
+Pour la documentation d'Eslint, se référer au [site web](http://eslint.org/)

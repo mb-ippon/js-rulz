@@ -2,12 +2,18 @@
   "name": "js-rulz",
   "version": "1.0.0",
   "scripts": {
-    "start": "node scripts/start"
+    "start": "node scripts/start",
+    "lint": "eslint src"
   },
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "body-parser": "^1.15.0",
-    "browser-sync": "^2.13.0"
+    "browser-sync": "^2.13.0",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb-base": "^4.0.2",
+    "eslint-plugin-import": "^1.10.3",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2"
   }
 }

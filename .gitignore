@@ -1,0 +1,11 @@
+node_modules/
+bower_components/
+.idea/
+.editorconfig
+npm-debug.log
+*SpecRunner.html
+.tmp
+dist
+.grunt
+coverage
+jenkins

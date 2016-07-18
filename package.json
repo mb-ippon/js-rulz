@@ -1,0 +1,13 @@
+{
+  "name": "js-rulz",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node scripts/start"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "browser-sync": "^2.13.0"
+  }
+}

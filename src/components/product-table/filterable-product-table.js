@@ -1,7 +1,7 @@
 (function(root) {
-  root.FilterableProductTable = React.createClass({
+  root.FilterableProductTable = React.createClass({ // eslint-disable-line no-param-reassign
     loadFromServer: function(url) {
-      var xhr = new XMLHttpRequest;
+      var xhr = new XMLHttpRequest();
       return new Promise(function(resolve, reject) {
         xhr.addEventListener('error', reject);
         xhr.addEventListener('load', resolve);
@@ -30,20 +30,26 @@
       });
     },
     render: function() {
-      return React.createElement('div', null,
-                                 React.createElement(root.SearchBar, {
-        onUserInput: this.handleUserInput,
-        filterText: this.state.filterText,
-        inStockOnly: this.state.inStockOnly
-      }),
-                                 React.createElement(root.ProductTable, {
-        products: this.state.products,
-        filterText: this.state.filterText,
-        inStockOnly: this.state.inStockOnly
-      })
-                                );
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          root.SearchBar,
+          {
+            filterText: this.state.filterText,
+            onUserInput: this.handleUserInput,
+            inStockOnly: this.state.inStockOnly
+          }
+        ),
+        React.createElement(
+          root.ProductTable,
+          {
+            products: this.state.products,
+            filterText: this.state.filterText,
+            inStockOnly: this.state.inStockOnly
+          }
+        )
+      );
     }
   });
-
-}(window))
-
+}(window));

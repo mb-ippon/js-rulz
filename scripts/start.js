@@ -2,7 +2,6 @@ var bs = require('browser-sync').create();
 var bodyParser = require('body-parser');
 var url = require('url');
 var dataProducts = require('../data');
-var path = require('path');
 
 // Start Browsersync
 bs.init({
@@ -29,12 +28,16 @@ bs.init({
     middleware: [bodyParser.urlencoded({ extended: true }), function(req, res, next) {
       var parsed = url.parse(req.url);
       if (parsed.pathname.match(/\/api\/products/)) {
+        res.setHeader('Content-Type', 'application/json');
         switch (req.method) {
           case 'POST':
             dataProducts.push(req.body);
+            // fall through
           case 'GET':
-            res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(dataProducts));
+            break;
+          default:
+            next();
         }
       } else {
         next();

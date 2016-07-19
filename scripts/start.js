@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var url = require('url');
 var dataProducts = require('../data');
 
+bs.watch('**').on('change', bs.reload);
 // Start Browsersync
 bs.init({
   open: false,

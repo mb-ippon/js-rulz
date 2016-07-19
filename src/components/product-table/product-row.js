@@ -1,5 +1,8 @@
 (function(root) {
   root.ProductRow = React.createClass({ // eslint-disable-line no-param-reassign
+    propTypes: {
+      product: React.PropTypes.object
+    },
     render: function() {
       var name;
       if (this.props.product.stocked) {

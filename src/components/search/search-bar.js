@@ -1,5 +1,10 @@
 (function(root) {
   root.SearchBar = React.createClass({ // eslint-disable-line no-param-reassign
+    propTypes: {
+      inStockOnly: React.PropTypes.bool,
+      filterText: React.PropTypes.string,
+      onUserInput: React.PropTypes.func
+    },
     handleChange: function() {
       this.props.onUserInput(
         this.refs.filterTextInput.value,

@@ -1,5 +1,10 @@
 (function(root) {
   root.ProductTable = React.createClass({ // eslint-disable-line no-param-reassign
+    propTypes: {
+      products: React.PropTypes.array,
+      filterText: React.PropTypes.string,
+      inStockOnly: React.PropTypes.bool
+    },
     render: function() {
       var rows = [];
       var lastCategory = null;

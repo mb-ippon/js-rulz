@@ -1,9 +1,18 @@
-(function(root) {
-  root.SearchBar = React.createClass({ // eslint-disable-line no-param-reassign
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['react'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('react'));
+  } else {
+    root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+  }
+}(this, function(React) {
+  return React.createClass({
+    displayName: 'SearchBar',
     propTypes: {
-      inStockOnly: React.PropTypes.bool,
       filterText: React.PropTypes.string,
-      onUserInput: React.PropTypes.func
+      onUserInput: React.PropTypes.func.isRequired,
+      inStockOnly: React.PropTypes.bool
     },
     handleChange: function() {
       this.props.onUserInput(
@@ -37,4 +46,4 @@
       );
     }
   });
-}(window));
+}));

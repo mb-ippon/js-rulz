@@ -1,15 +1,15 @@
 {
-  "root": true,
-  "globals": {
-    "React": true,
-    "ReactDOM": true,
-    "Promise": true
+  "env": {
+    "browser": true,
+    "amd": true,
+    "mocha": true
   },
   "extends": ["airbnb-base/legacy", "plugin:react/recommended"],
   "plugins": [
     "react"
   ],
   "rules": {
+    "global-require": 0,
     "space-before-function-paren": [2, "never"]
   }
 }

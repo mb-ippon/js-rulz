@@ -4,7 +4,10 @@
     "ReactDOM": true,
     "Promise": true
   },
-  "extends": "airbnb-base/legacy",
+  "extends": ["airbnb-base/legacy", "plugin:react/recommended"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "space-before-function-paren": [2, "never"]
   }

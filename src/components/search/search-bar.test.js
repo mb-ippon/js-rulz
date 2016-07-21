@@ -1,22 +1,25 @@
-var React = require('react');
-var enzyme = require('enzyme');
-var sinon = require('sinon');
-var SearchBar = require('./search-bar');
-require('chai').should();
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import sinon from 'sinon';
+import { should } from 'chai';
+import SearchBar from './search-bar';
 
-describe('SearchBar', function() {
-  it('should define a placeholder', function() {
-    var wrapper = enzyme.shallow(React.createElement(SearchBar));
+should();
+
+describe('SearchBar', () => {
+  it('should define a placeholder', () => {
+    const wrapper = shallow(React.createElement(SearchBar));
     wrapper // eslint-disable-line no-unused-expressions
     .find('input[type="text"]')
     .props()
     .placeholder
     .should.be.defined;
   });
-  it('should define an user input callback on a change', function() {
-    var onUserInput = sinon.spy();
-    var wrapper = enzyme.mount(React.createElement(SearchBar, {
-      onUserInput: onUserInput,
+  it('should define an user input callback on a change', () => {
+    const onUserInput = sinon.spy();
+    const wrapper = mount(React.createElement(SearchBar, {
+      onUserInput,
       filterText: 'test',
       inStockOnly: true
     }));

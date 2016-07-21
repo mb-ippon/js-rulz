@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node scripts/start",
     "lint": "eslint src",
-    "test": "mocha scripts/test.config.js src/**/*.test.js",
+    "test": "mocha --compilers js:babel-core/register scripts/test.config.js src/**/*.test.js",
     "coverage": "istanbul --include-all-sources cover -x dist/** -x bower_components/** -x scripts/** -x data.js --report html node_modules/mocha/bin/_mocha -- -R spec scripts/test.config.js src/**/*.test.js",
     "compile": "babel src --out-dir dist"
   },

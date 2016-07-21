@@ -6,21 +6,28 @@
   } else {
     root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
   }
-}(this, function(React) {
-  return React.createClass({
-    displayName: 'SearchBar',
-    propTypes: {
-      filterText: React.PropTypes.string,
-      onUserInput: React.PropTypes.func.isRequired,
-      inStockOnly: React.PropTypes.bool
-    },
-    handleChange: function() {
+}(this, React => {
+  class SearchBar extends React.Component {
+
+    constructor() {
+      super();
+      this.displayName = 'SearchBar';
+      this.propTypes = {
+        filterText: React.PropTypes.string,
+        onUserInput: React.PropTypes.func.isRequired,
+        inStockOnly: React.PropTypes.bool
+      };
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange() {
       this.props.onUserInput(
         this.refs.filterTextInput.value,
         this.refs.inStockOnlyInput.checked
       );
-    },
-    render: function() {
+    }
+
+    render() {
       return React.createElement(
         'form',
         null,
@@ -45,5 +52,6 @@
         )
       );
     }
-  });
+  }
+  return SearchBar;
 }));

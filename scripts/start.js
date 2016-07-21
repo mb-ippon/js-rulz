@@ -2,30 +2,43 @@ var bs = require('browser-sync').create();
 var bodyParser = require('body-parser');
 var url = require('url');
 var dataProducts = require('../data');
+var exec = require('child_process').exec;
+var fs = require('fs-extra');
+var watch = require('node-watch');
+var path = require('path');
 
-bs.watch('**').on('change', bs.reload);
+fs.copySync(
+  path.join(__dirname, '../src/', 'index.html'),
+  path.join(__dirname, '../dist/', 'index.html')
+);
+
+watch('src', function() {
+  exec('npm run compile', function() {
+    bs.reload();
+  });
+});
 // Start Browsersync
 bs.init({
   open: false,
   server: {
     /*
-     * Les repertoires de bases à exécuter, peut-être un array
-     */
+    * Les repertoires de bases à exécuter, peut-être un array
+    */
     baseDir: './src',
     /*
-     *  le point d'entré de l'application
-     */
+    *  le point d'entré de l'application
+    */
     index: 'index.html',
     /*
-     *  les routes vers les ressources statiques
-     */
+    *  les routes vers les ressources statiques
+    */
     routes: {
       '/node_modules': 'node_modules',
       '/bower_components': 'bower_components'
     },
     /*
-     *  middleware gérant les ressources serveur dynamiques json ...
-     */
+    *  middleware gérant les ressources serveur dynamiques json ...
+    */
     middleware: [bodyParser.urlencoded({ extended: true }), function(req, res, next) {
       var parsed = url.parse(req.url);
       if (parsed.pathname.match(/\/api\/products/)) {

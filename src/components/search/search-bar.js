@@ -6,17 +6,19 @@
   } else {
     root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
   }
-}(this, React => {
+}(this || window, React => {
   class SearchBar extends React.Component {
+
+    static displayName = 'SearchBar';
+
+    static propTypes = {
+      filterText: React.PropTypes.string,
+      onUserInput: React.PropTypes.func.isRequired,
+      inStockOnly: React.PropTypes.bool
+    }
 
     constructor() {
       super();
-      this.displayName = 'SearchBar';
-      this.propTypes = {
-        filterText: React.PropTypes.string,
-        onUserInput: React.PropTypes.func.isRequired,
-        inStockOnly: React.PropTypes.bool
-      };
       this.handleChange = this.handleChange.bind(this);
     }
 

@@ -4,6 +4,7 @@
     "amd": true,
     "mocha": true
   },
+  "parser": "babel-eslint",
   "extends": ["airbnb-base", "plugin:react/recommended"],
   "plugins": [
     "react"

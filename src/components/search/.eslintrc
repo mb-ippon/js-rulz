@@ -4,12 +4,13 @@
     "amd": true,
     "mocha": true
   },
-  "extends": ["airbnb-base/legacy", "plugin:react/recommended"],
+  "extends": ["airbnb-base", "plugin:react/recommended"],
   "plugins": [
     "react"
   ],
   "rules": {
     "global-require": 0,
-    "space-before-function-paren": [2, "never"]
+    "space-before-function-paren": [2, "never"],
+    "comma-dangle": ["error", "never"]
   }
 }

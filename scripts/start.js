@@ -12,6 +12,11 @@ fs.copySync(
   path.join(__dirname, '../dist/', 'index.html')
 );
 
+fs.copySync(
+  path.join(__dirname, '../src/', 'app.css'),
+  path.join(__dirname, '../dist/', 'app.css')
+);
+
 watch('src', function() {
   exec('npm run compile', function() {
     bs.reload();
@@ -24,7 +29,7 @@ bs.init({
     /*
     * Les repertoires de bases à exécuter, peut-être un array
     */
-    baseDir: './src',
+    baseDir: './dist',
     /*
     *  le point d'entré de l'application
     */

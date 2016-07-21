@@ -30,28 +30,26 @@
     }
 
     render() {
-      return React.createElement(
-        'form',
-        null,
-        React.createElement('input', {
-          type: 'text',
-          placeholder: 'Search...',
-          value: this.props.filterText,
-          ref: 'filterTextInput',
-          onChange: this.handleChange
-        }),
-        React.createElement(
-          'p',
-          null,
-          React.createElement('input', {
-            type: 'checkbox',
-            checked: this.props.inStockOnly,
-            ref: 'inStockOnlyInput',
-            onChange: this.handleChange
-          }),
-          ' ',
-          'Only show products in stock'
-        )
+      return (
+        <form>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={this.props.filterText}
+            ref="filterTextInput"
+            onChange={this.handleChange}
+          />
+          <p>
+            <input
+              type="checkbox"
+              checked={this.props.inStockOnly}
+              ref="inStockOnlyInput"
+              onChange={this.handleChange}
+            />
+            {' '}
+            Only show products in stock
+          </p>
+        </form>
       );
     }
   }

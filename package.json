@@ -9,7 +9,10 @@
     "compile": "babel src --out-dir dist"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-core": "^6.11.4",
@@ -28,9 +31,7 @@
     "jsdom": "^9.4.1",
     "mocha": "^2.5.3",
     "node-watch": "^0.3.5",
-    "react": "^15.2.1",
     "react-addons-test-utils": "^15.2.1",
-    "react-dom": "^15.2.1",
     "sinon": "^1.17.4"
   }
 }

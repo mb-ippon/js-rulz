@@ -1,14 +1,17 @@
-(function(root) {
-  root.ProductCategoryRow = React.createClass({ // eslint-disable-line no-param-reassign
-    propTypes: {
-      category: React.PropTypes.string
-    },
-    render: function() {
-      return React.createElement(
-        'tr',
-        null,
-        React.createElement('th', { colSpan: '2' }, this.props.category)
-      );
-    }
-  });
-}(window));
+import React from 'react';
+export default class ProductCategoryRow extends React.Component {
+
+  static propTypes = {
+    category: React.PropTypes.string
+  }
+
+  render() {
+    return (
+      <tr>
+        <th colSpan= '2'>
+          {this.props.category}
+        </th>
+      </tr>
+    );
+  }
+}

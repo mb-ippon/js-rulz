@@ -1,15 +1,16 @@
 {
   "root": true,
-  "globals": {
-    "React": true,
-    "ReactDOM": true,
-    "Promise": true
+  "env": {
+    "browser": true,
+    "mocha": true
   },
-  "extends": ["airbnb-base/legacy", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base", "plugin:react/recommended"],
   "plugins": [
     "react"
   ],
   "rules": {
-    "space-before-function-paren": [2, "never"]
+    "space-before-function-paren": [2, "never"],
+    "comma-dangle": ["error", "never"]
   }
 }

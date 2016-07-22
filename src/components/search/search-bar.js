@@ -1,57 +1,48 @@
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(['react'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    module.exports = factory(require('react'));
-  } else {
-    root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+import React from 'react';
+
+export default class SearchBar extends React.Component {
+
+  static displayName = 'SearchBar';
+
+  static propTypes = {
+    filterText: React.PropTypes.string,
+    onUserInput: React.PropTypes.func.isRequired,
+    inStockOnly: React.PropTypes.bool
   }
-}(this || window, React => {
-  class SearchBar extends React.Component {
 
-    static displayName = 'SearchBar';
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-    static propTypes = {
-      filterText: React.PropTypes.string,
-      onUserInput: React.PropTypes.func.isRequired,
-      inStockOnly: React.PropTypes.bool
-    }
+  handleChange() {
+    this.props.onUserInput(
+      this.refs.filterTextInput.value,
+      this.refs.inStockOnlyInput.checked
+    );
+  }
 
-    constructor() {
-      super();
-      this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange() {
-      this.props.onUserInput(
-        this.refs.filterTextInput.value,
-        this.refs.inStockOnlyInput.checked
-      );
-    }
-
-    render() {
-      return (
-        <form>
+  render() {
+    return (
+      <form>
+        <input
+         type="text"
+         placeholder="Search..."
+         value={this.props.filterText}
+         ref="filterTextInput"
+         onChange={this.handleChange}
+        />
+        <p>
           <input
-            type="text"
-            placeholder="Search..."
-            value={this.props.filterText}
-            ref="filterTextInput"
-            onChange={this.handleChange}
+           type="checkbox"
+           checked={this.props.inStockOnly}
+           ref="inStockOnlyInput"
+           onChange={this.handleChange}
           />
-          <p>
-            <input
-              type="checkbox"
-              checked={this.props.inStockOnly}
-              ref="inStockOnlyInput"
-              onChange={this.handleChange}
-            />
-            {' '}
-            Only show products in stock
-          </p>
-        </form>
-      );
-    }
+          {' '}
+          Only show products in stock
+        </p>
+      </form>
+    );
   }
-  return SearchBar;
-}));
+}

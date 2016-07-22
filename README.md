@@ -49,3 +49,7 @@ Mocha est utilisé pour analyser le code JavaScript de l'application. Pour le la
     npm test
 
 Pour la documentation de Mocha, se référer au [site web](http://mochajs.org/)
+
+Une couverture de tests est générée par Istanbul en exécutant :
+
+   npm run coverage

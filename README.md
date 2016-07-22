@@ -41,3 +41,11 @@ Eslint est utilisé pour analyser le code JavaScript de l'application. Pour le l
     npm run lint
 
 Pour la documentation d'Eslint, se référer au [site web](http://eslint.org/)
+
+### Tests unitaires
+
+Mocha est utilisé pour analyser le code JavaScript de l'application. Pour le lancer, exécuter :
+
+    npm test
+
+Pour la documentation de Mocha, se référer au [site web](http://mochajs.org/)

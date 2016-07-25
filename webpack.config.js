@@ -14,5 +14,6 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel'
     }]
-  }
+  },
+  devtool: 'inline-source-map'
 };

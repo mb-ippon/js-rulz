@@ -6,24 +6,10 @@ var exec = require('child_process').exec;
 var fs = require('fs-extra');
 var watch = require('node-watch');
 var path = require('path');
-
-fs.copySync(
-  path.join(__dirname, '../src/', 'index.html'),
-  path.join(__dirname, '../dist/', 'index.html')
-);
-
-fs.copySync(
-  path.join(__dirname, '../src/', 'app.css'),
-  path.join(__dirname, '../dist/', 'app.css')
-);
-
-watch('src', function() {
-  exec('npm run compile', function() {
-    bs.reload();
-  });
-});
-// Start Browsersync
-bs.init({
+var WebpackDevServer = require('webpack-dev-server');
+var webpack = require('webpack');
+var config = require('../webpack.config');
+var bsConfg = {
   open: false,
   server: {
     /*
@@ -50,17 +36,41 @@ bs.init({
         res.setHeader('Content-Type', 'application/json');
         switch (req.method) {
           case 'POST':
-            dataProducts.push(req.body);
-            // fall through
+          dataProducts.push(req.body);
+          // fall through
           case 'GET':
-            res.end(JSON.stringify(dataProducts));
-            break;
+          res.end(JSON.stringify(dataProducts));
+          break;
           default:
-            next();
+          next();
         }
       } else {
         next();
       }
     }]
   }
+};
+
+fs.copySync(
+  path.join(__dirname, '../src/', 'index.html'),
+  path.join(__dirname, '../dist/', 'index.html')
+);
+fs.copySync(
+  path.join(__dirname, '../src/', 'app.css'),
+  path.join(__dirname, '../dist/', 'app.css')
+);
+
+new WebpackDevServer(webpack(config), {
+  publicPath: config.output.publicPath,
+  historyApiFallback: true,
+  proxy: {
+    '*': 'http://localhost:3000'
+  }
+}).listen(8080, 'localhost', function(err) {
+  if (err) {
+    console.log(err);
+  }
+  console.log('Listening at http://localhost:8080/');
+  // Start Browsersync
+  bs.init(bsConfg);
 });

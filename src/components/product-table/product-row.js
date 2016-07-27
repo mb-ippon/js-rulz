@@ -1,4 +1,5 @@
 import React from 'react';
+import css from '../../app.css';
 
 export default class ProductRow extends React.Component {
   static propTypes = {
@@ -10,7 +11,7 @@ export default class ProductRow extends React.Component {
     if (this.props.product.stocked) {
       name = this.props.product.name;
     } else {
-      name = <span className={'out-stock'}>{this.props.product.name}</span>;
+      name = <span className={css['out-stock']}>{this.props.product.name}</span>;
     }
     return (
       <tr>

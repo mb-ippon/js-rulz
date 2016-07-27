@@ -15,7 +15,7 @@ module.exports = {
       loader: 'babel'
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader!postcss-loader'
+      loader: 'style-loader!css-loader?modules=tru!postcss-loader'
     }]
   },
   devtool: 'inline-source-map'

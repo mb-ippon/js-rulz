@@ -1,9 +1,13 @@
 var path = require('path');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
     path.join(__dirname, 'src', 'app.js')
   ],
   output: {
@@ -20,6 +24,10 @@ module.exports = {
       loader: 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
     }]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   postcss: function() {
     return [precss, autoprefixer];
   },

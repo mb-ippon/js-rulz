@@ -36,13 +36,13 @@ var bsConfg = {
         res.setHeader('Content-Type', 'application/json');
         switch (req.method) {
           case 'POST':
-          dataProducts.push(req.body);
-          // fall through
+            dataProducts.push(req.body);
+            // fall through
           case 'GET':
-          res.end(JSON.stringify(dataProducts));
-          break;
+            res.end(JSON.stringify(dataProducts));
+            break;
           default:
-          next();
+            next();
         }
       } else {
         next();
@@ -63,6 +63,7 @@ fs.copySync(
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   historyApiFallback: true,
+  hot: true,
   proxy: {
     '*': 'http://localhost:3000'
   }

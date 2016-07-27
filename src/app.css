@@ -1,8 +1,8 @@
+$outStock-color: red;
 
 body {
-    padding: 20px;
-}
-
-.out-stock {
-    color: red;
+  padding: 20px;
+  .out-stock {
+    color: $outStock-color;
+  }
 }

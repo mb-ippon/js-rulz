@@ -8,7 +8,7 @@ var watch = require('node-watch');
 var path = require('path');
 var WebpackDevServer = require('webpack-dev-server');
 var webpack = require('webpack');
-var config = require('../webpack.config');
+var config = require('../webpack.config.dev');
 var bsConfg = {
   open: false,
   server: {
@@ -16,10 +16,6 @@ var bsConfg = {
     * Les repertoires de bases à exécuter, peut-être un array
     */
     baseDir: './dist',
-    /*
-    *  le point d'entré de l'application
-    */
-    index: 'index.html',
     /*
     *  les routes vers les ressources statiques
     */
@@ -50,15 +46,6 @@ var bsConfg = {
     }]
   }
 };
-
-fs.copySync(
-  path.join(__dirname, '../src/', 'index.html'),
-  path.join(__dirname, '../dist/', 'index.html')
-);
-fs.copySync(
-  path.join(__dirname, '../src/', 'app.css'),
-  path.join(__dirname, '../dist/', 'app.css')
-);
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,

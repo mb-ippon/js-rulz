@@ -2,17 +2,17 @@ var path = require('path');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    path.join(__dirname, 'src', 'app.js')
+    path.join(__dirname, 'src', 'app.js'),
+    path.join(__dirname, 'src', 'vendor.js')
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: '[name].bundle.[chunkhash].js'
   },
   module: {
     loaders: [{
@@ -25,11 +25,16 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new HtmlWebpackPlugin({
+      title: 'Js-rulz',
+      template: 'src/index.html'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    new WebpackMd5Hash()
   ],
   postcss: function() {
     return [precss, autoprefixer];
-  },
-  devtool: 'inline-source-map'
+  }
 };

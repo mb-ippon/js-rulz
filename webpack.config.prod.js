@@ -32,7 +32,17 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
-    new WebpackMd5Hash()
+    new WebpackMd5Hash(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    })
   ],
   postcss: function() {
     return [precss, autoprefixer];

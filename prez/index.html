@@ -1,0 +1,1816 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Prez Javascript</title>
+
+    <meta name="description" content="Une présentation, basée sur reveal.js">
+    <meta name="author" content="Mathieu Bellange">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <!-- Custom style -->
+    <link rel="stylesheet" href="css/prez.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-background-image="" data-background-size="contain"
+                 class="title" data-transition="fade-out">
+            <h1>JavaScript rulz</h1>
+            <h3>Développement JavaScript moderne</h3>
+            <p>
+                <small>Présenté par <a href="mailto:mbellange@ippon.fr">Mathieu Bellange</a> / <a
+                        href="http://www.ippon.fr/">Ippon Technologies</a></small>
+            </p>
+        </section>
+
+        <!-- Introduction -->
+        <section data-background-image=""
+                 data-background-size="contain">
+            <h3>Programme</h3>
+        </section>
+        <section>
+            <h2>Javascript c'est quoi ?</h2>
+            <p>
+                Une introduction sur le développement javascript
+            </p>
+        </section>
+        <section>
+            <h2>Bonnes pratiques et développement JavaScript</h2>
+            <p>
+                Linting et tests unitaires
+            </p>
+        </section>
+        <section>
+            <h2>ECMAScript et Transpiling</h2>
+            <p>
+                Utiliser les dernières mises à jour du langage
+            </p>
+        </section>
+        <section>
+            <h2>Webpack, module bundler</h2>
+            <p>
+                Packaging d'application JavaScript
+            </p>
+        </section>
+
+        <!-- Introduction Javascript -->
+        <section>
+            <section data-background-image="">
+                <h2>Javascript c'est quoi ?</h2>
+            </section>
+            <section>
+                <h3>Un langage de script</h3>
+                <p>
+                  Le langage des navigateurs web
+                </p>
+                <p>
+                    <small><q>Développé en 10 jours pour Netscape navigator</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Premier langage sur github</h3>
+                <p>
+                  En nombre de repos actif et total de push
+                </p>
+                <p>
+                    <small><q>Il existe de nombreux projets actifs ainsi qu'une communauté très engagée</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Une nouvelle version par an</h3>
+                <p>
+                  ECMAScript, la spécification JavaScript
+                </p>
+                <p>
+                    <small><q>Annualisée depuis 2015. La version 6 comporte de très nombreux changements</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Un écosystème varié</h3>
+                <p>
+                  Du front au back en passant par du natif
+                </p>
+                <p>
+                    <small><q>De nombreuses librairies permettent de couvrir un spectre extrêmement étendu</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Une syntaxe proche du Java</h3>
+                <p>
+                  Communication commune avec Sun à sa sortie
+                </p>
+                <p>
+                    <small><q>Entraîne une confusion entre les deux langages</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Des concepts qui divergent</h3>
+                <p>
+                  Langage non typé, héritage par prototype, portée des variables...
+                </p>
+                <p>
+                    <small><q>Qui nécessitent d'être connus pour appréhender correctement le langage</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Pratiques de développement communes</h3>
+                <p>
+                  Respect des bonnes pratiques valables dans tous les langages
+                </p>
+                <p>
+                    <small><q>DRY, loi de Déméter, Orthogonalité...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Outils spécifiques au JavaScript</h3>
+                <p>
+                  Analyse syntaxique, Tests unitaires...
+                </p>
+                <p>
+                    <small><q>De nombreuses librairies pour aider au respect des bonnes pratques de développement</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+        </section>
+
+        <!-- ouverture pour la première partie -->
+
+        <!-- développement d'une application react -->
+        <section>
+            <section>
+                <h2>Bonnes pratiques et développement JavaScript</h2>
+            </section>
+            <section>
+                <h2>Objectifs</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Mises en place d'outils JavaScript</h3>
+                <p>
+                  Pour encadrer le développement
+                </p>
+                <p>
+                    <small><q>Analyse syntaxique, tests unitaires adaptés aux application JavaScript</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Basé sur une application React</h3>
+                <p>
+                    Bonnes pratiques avec React comme coeur applicatif
+                </p>
+                <p>
+                    <small><q>Configuration particulière des outils pour être utilisés avec une application React</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Live coding</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Tutorial React</h3>
+                <p>
+                    Ecrit en ES5, sans Jsx
+                </p>
+                <p>
+                    <small><q>JSX est une syntaxe XML like</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Scripts de développement</h3>
+                <p>
+                    Ni gulp, ni grunt n'est utilisé
+                </p>
+                <p>
+                    <small><q>Simple script JavaScript permettant de réaliser le travail</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <!-- démo app -->
+
+            <!--
+                tag: start_demo
+
+                script :
+
+                    npm start
+
+                    montrer l'application, le script de lancement et un composant React
+
+                    Parler de React.createClass, React.createElement
+
+            -->
+
+            <section data-background-image="">
+                <h2>Les outils de linting</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h2>Rôle</h2>
+                <img src="" class="stretch">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Analyse syntaxique</h3>
+                <p>
+                    Analyse la syntaxe du code Js
+                </p>
+                <p>
+                    <small><q>Remonte les erreurs de syntaxe</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Analyse style</h3>
+                <p>
+                    Analyse le style des fichiers javascript
+                </p>
+                <p>
+                    <small><q>Indentation, saut de ligne...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Analyse de bonnes pratiques de développement</h3>
+                <p>
+                    Règles communément respectées par la communauté
+                </p>
+                <p>
+                    <small><q>Analyse toute une série de bonnes pratiques JavaScript comme la déclaration des variables,
+                        déclaration des fonctions...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-color="#ffffff">
+                <h2>Les outils</h2>
+                <img src="" class="stretch">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>De nombreux outils</h3>
+                <p>
+                    JsLint, JsHint, Eslint...
+                </p>
+                <p>
+                    <small><q>Tous se basent sur les bonnes pratiques adoptées par la communauté</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Eslint</h3>
+                <p>
+                    Configurable, extensible, pluggable
+                </p>
+                <p>
+                    <small><q>Eslint est configurable, permet d'étendre une configuration existante et d'ajouter des
+                        plugins</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Une documentation exhaustive</h3>
+                <p>
+                    Une documentation des règles est présente sur le site d'<a
+                        href="http://eslint.org/docs/rules/">eslint</a>
+                </p>
+                <p>
+                    <small><q>Règles détaillées avec leurs causes et la manière de les configurer</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Configuration Eslint pour React</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Ajout du plugin React</h3>
+                <p>
+                    Plugin Eslint analysant les bonnes pratiques de développement en React
+                </p>
+                <p>
+                    <small><q>De nombreuses règles décrites dans la <a
+                            href="https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules">documentation</a>
+                        du plugin</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <!-- démo eslint -->
+
+            <!--
+
+                tag: start_eslint
+
+                script:
+
+                    montrer dans le fichier eslintrc :
+                        "plugins": [
+                            "react"
+                        ],
+
+                    montrer extends dans le fichier eslintrc :
+                        "extends": ["airbnb-base/legacy", "plugin:react/recommended"],
+
+                    observer les erreurs dans atom, voir les règles react
+
+                    corriger les règles React, exemple dans product-category-row
+                        propTypes: {
+                          category: React.PropTypes.string.isRequired
+                        },
+
+                    Discuter un peu des autres règles
+
+                tag: stop_eslint
+
+            -->
+
+            <section data-background-image="">
+                <h2>Tests unitaires</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Réalisation de tests en JavaScript</h3>
+                <p>
+                    S'assurer de l'environnement d'exécution des tests
+                </p>
+                <p>
+                    <small><q>Les tests javascript peuvent être exécutés dans de nombreux moteurs JavaScript
+                        différents</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-color="#ffffff">
+                <h2>Les librairies de tests</h2>
+                <img src="" class="stretch">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>De nombreux candidats</h3>
+                <p>
+                    Mocha, Jasmine, Jest...
+                </p>
+                <p>
+                    <small><q>Chaque librairie possède ses avantages et ses inconvénients</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Mocha</h3>
+                <p>
+                    Simple, flexible. L'exécution peut se faire dans Node ou un browser
+                </p>
+                <p>
+                    <small><q>Mocha ne décrit que les tests, on pourra y associer Chai et Sinon pour le compléter</q>
+                    </small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Test d'une application React</h3>
+                <p>
+                    Test d'un composant React avec Enzyme
+                </p>
+                <p>
+                    <small><q>Développé par airbnb, librairie de tests pouvant s'associer à Jasmine, Mocha, Jest...</q>
+                    </small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <!-- démo tests unitaires -->
+
+            <!--
+                script:
+
+                    tag: start_tests
+
+                    pour ajouter un test, il faut ajouter un module UMD exemple searchBar :
+
+                    (function(root, factory) {
+                      if (typeof define === 'function' && define.amd) {
+                        define(['react'], factory);
+                      } else if (typeof module === 'object' && module.exports) {
+                        module.exports = factory(require('react'));
+                      } else {
+                        root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+                      }
+                    }(this, function(React) {
+                      return React.createClass({
+                        displayName: 'SearchBar',
+                        propTypes: {
+                          filterText: React.PropTypes.string,
+                          onUserInput: React.PropTypes.func.isRequired,
+                          inStockOnly: React.PropTypes.bool
+                        },
+                        handleChange: function() {
+                          this.props.onUserInput(
+                            this.refs.filterTextInput.value,
+                            this.refs.inStockOnlyInput.checked
+                          );
+                        },
+                        render: function() {
+                          return React.createElement('form', null,
+                            React.createElement('input', {
+                              type: 'text',
+                              placeholder: 'Search...',
+                              value: this.props.filterText,
+                              ref: 'filterTextInput',
+                              onChange: this.handleChange
+                            }),
+                            React.createElement('p', null,
+                              React.createElement('input', {
+                                type: 'checkbox',
+                                checked: this.props.inStockOnly,
+                                ref: 'inStockOnlyInput',
+                                onChange: this.handleChange
+                              }),
+                              ' ',
+                              'Only show products in stock'
+                            )
+                          );
+                        }
+                      });
+                    }));
+
+                    npm install react react-dom  react-addons-test-utils mocha chai sinon enzyme --save-dev
+
+                    ajouter un test mocha :
+                        var React = require('react');
+                        var enzyme = require('enzyme');
+                        var sinon = require('sinon');
+                        var should = require('chai').should();
+                        var SearchBar = require('./search-bar');
+
+                        describe('SearchBar', function() {
+
+                          it('should define a placeholder', function() {
+                            var wrapper = enzyme.shallow(React.createElement(SearchBar));
+                            wrapper.find('input[type="text"]').props().placeholder.should.be.defined;
+                          });
+                          it('should define an user input callback on a change', function() {
+                            var onUserInput = sinon.spy();
+                            var wrapper = enzyme.mount(React.createElement(SearchBar, {
+                              onUserInput: onUserInput,
+                              filterText: 'test',
+                              inStockOnly: true
+                            }));
+                            wrapper.find('input[type="text"]').simulate('change');
+                            onUserInput.calledOnce.should.equal(true);
+                            onUserInput.calledWith('test', true).should.equal(true);
+                          });
+                        });
+
+                    tag: stop_tests
+
+                    tag: test_coverage
+
+                    npm install istanbul --save-dev
+
+                    ajout d'un script npm :
+                        "coverage": "istanbul --include-all-sources cover -x dist/** -x bower_components/** -x scripts/** -x data.js --report html node_modules/mocha/bin/_mocha -- -R spec scripts/test.config.js src/**/*.test.js"
+
+            -->
+            <section>
+                <h2>JavaScript Next</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Utilisation des features ES6</h3>
+                <p>
+                    Migration du code vers les nouvelles fonctionnalités ES6
+                </p>
+                <p>
+                    <small><q>Entraîne une problématique de compatibilité avec les navigateurs du marché</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+        </section>
+        <!-- Langage -->
+        <section>
+          <section data-background-image="">
+              <h2>ECMAScript et Transpiling</h2>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section data-background-image="">
+              <h2>Objectif</h2>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Evolution de l'application React</h3>
+              <p>
+                  Utilisation des dernières mises à jour du langage
+              </p>
+              <p>
+                  <small><q>Et même celles qui sont en cours de spécification</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Compatibilité avec les navigateurs</h3>
+              <p>
+                  En utilisant un transpileur et des polyfills
+              </p>
+              <p>
+                  <small><q>Garder la compatibilité de l'application avec les vieux navigateurs</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section data-background-image="">
+              <h2>Présentation</h2>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>ECMAScript</h3>
+              <p>
+                  La spécification du langage JavaScript
+              </p>
+              <p>
+                  <small><q>Son implémentation est réalisée par de nombreux langages transpilant en JavaScript</q>
+                  </small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Dernière version</h3>
+              <p>
+                  ECMAScript 2016
+              </p>
+              <p>
+                  <small><q>ES6 est la dernière version à porter un numéro</q>
+                  </small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>ES6</h3>
+              <p>
+                  Sortie en 2015, elle apporte de très nombreux changements
+              </p>
+              <p>
+                  <small><q>Aussi appelée ES2015, elle est la version qui apporte au langage les class, les promises, les modules...</q>
+                  </small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Mise à jour importante</h3>
+              <p>
+                  6 ans après ES5
+              </p>
+              <p>
+                  <small><q>La mise à jour est tellement importante qu'il a été décidé de sortir les prochaines versions tous les ans</q>
+                  </small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Les nouvelles versions</h3>
+              <p>
+                  Chaque nouvelle fonctionnalité passe par 5 étapes ou stages
+              </p>
+              <p>
+                  <small><q>S'étale de stage-0, une simple idée, à stage-4, fini et ajouté à la prochaine release du
+                      langage</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Différences d'implémentation</h3>
+              <p>
+                  Chaque moteur JavaScript implémente les fonctionnalités à un rythme différent
+              </p>
+              <p>
+                  <small><q>Une application peut ainsi utiliser des fonctions avancées dans certains navigateurs mais
+                      pas dans d'autres</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Palier le manque d'implémentation</h3>
+              <p>
+                  Utilisation de Transpiler et de polyfill
+              </p>
+              <p>
+                  <small><q>Des specs en phase 0 peuvent ainsi être implémentées et utilisées</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Polyfill</h3>
+              <p>
+                  Ajoute des fonctionnalités non présentes dans l'environnement d'exécution
+              </p>
+              <p>
+                  <small><q>Nom issu d'un produit qui permet de boucher les trous d'un mur</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Transpileur</h3>
+              <p>
+                  Transforme le code d'un langage vers un autre
+              </p>
+              <p>
+                  <small><q>Il existe de très nombreux langages qui transpilent en JavaScript : TypeScript,
+                      CoffeeScript...</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Babel</h3>
+              <p>
+                  Transpile du code ES2015+ en ES5
+              </p>
+              <p>
+                  <small><q>Va permettre d'utiliser les dernières fonctionnnalités js n'importe où</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Utilisation dans une application front</h3>
+              <p>
+                  Permet de développer avec la prochaine génération JavaScript
+              </p>
+              <p>
+                  <small><q>Babel permet d'utiliser les fonctionnaltés ES6+ dans n'importe quel navigateur</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section data-background-image="">
+              <h2>Live coding</h2>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Mise en place de Babel</h3>
+              <p>
+                  Ajout des presets ES2015
+              </p>
+              <p>
+                  <small><q>Ajout d'un plugin pour la gestion des 'property initializers'</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Bonus JSX</h3>
+              <p>
+                  Ajout du preset React
+              </p>
+              <p>
+                  <small><q>Permet d'utiliser JSX dans les composants React</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+
+          <!-- démo langage avancé -->
+
+          <!--
+
+              script:
+                  npm install babel-core babel-cli babel-preset-es2015 --save-dev
+
+                  ajouter un fichier .babelrc :
+                      {
+                        "presets": ["es2015"]
+                      }
+
+                  ajouter npm script compile:
+                      "compile": "babel src --out-dir dist"
+
+                  tag: stop_config_babel
+
+                  pour l'exécuter dans le browser, il faut compiler d'abord avec babel:
+                      npm install fs-extra node-watch --save-dev
+
+                      corriger npm script start:
+                          "start": "npm run compile && node scripts/start",
+
+                      ajouter start.js
+                          var exec = require('child_process').exec;
+                          var fs = require('fs-extra');
+                          var watch = require('node-watch');
+                          var path = require('path');
+
+                          fs.copySync(
+                            path.join(__dirname, '../src/', 'index.html'),
+                            path.join(__dirname, '../dist/', 'index.html')
+                          );
+
+                          watch('src', function(filename) {
+                            exec('npm run compile', function() {
+                              bs.reload();
+                            });
+                          });
+
+                  tag: start_es6
+
+                  changer la config eslint dans search :
+                      "extends": ["airbnb-base", "plugin:react/recommended"],
+
+                  montrer les erreurs eslint
+
+                  Passer le code en es6
+
+                  search-bar.test:
+                      /* eslint-disable no-unused-expressions */
+                      import React from 'react';
+                      import { shallow, mount } from 'enzyme';
+                      import sinon from 'sinon';
+                      import SearchBar from './search-bar';
+                      import { expect, should } from 'chai';
+
+                      should();
+
+                      describe('SearchBar', () => {
+                        it('should define a placeholder', () => {
+                          const wrapper = shallow(React.createElement(SearchBar));
+                          expect(wrapper.find('input[type="text"]').props().placeholder).to.be.defined;
+                        });
+                        it('should define an user input callback on a change', () => {
+                          const onUserInput = sinon.spy();
+                          const wrapper = mount(React.createElement(SearchBar, {
+                            onUserInput,
+                            filterText: 'test',
+                            inStockOnly: true
+                          }));
+                          wrapper.find('input[type="text"]').simulate('change');
+                          onUserInput.calledOnce.should.equal(true);
+                          onUserInput.calledWith('test', true).should.equal(true);
+                        });
+                      });
+
+                   search-bar:
+                      (function(root, factory) {
+                        if (typeof define === 'function' && define.amd) {
+                          define(['react'], factory);
+                        } else if (typeof module === 'object' && module.exports) {
+                          module.exports = factory(require('react'));
+                        } else {
+                          root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+                        }
+                      }(this, React => {
+                        class SearchBar extends React.Component {
+                          constructor() {
+                            super();
+                            this.displayName = 'SearchBar';
+                            this.propTypes = {
+                              filterText: React.PropTypes.string,
+                              onUserInput: React.PropTypes.func.isRequired,
+                              inStockOnly: React.PropTypes.bool
+                            };
+                            this.handleChange = this.handleChange.bind(this);
+                          }
+
+                          handleChange() {
+                            this.props.onUserInput(
+                              this.refs.filterTextInput.value,
+                              this.refs.inStockOnlyInput.checked
+                            );
+                          }
+
+                          render() {
+                            return React.createElement('form', null,
+                              React.createElement('input', {
+                                type: 'text',
+                                placeholder: 'Search...',
+                                value: this.props.filterText,
+                                ref: 'filterTextInput',
+                                onChange: this.handleChange
+                              }),
+                              React.createElement('p', null,
+                                React.createElement('input', {
+                                  type: 'checkbox',
+                                  checked: this.props.inStockOnly,
+                                  ref: 'inStockOnlyInput',
+                                  onChange: this.handleChange
+                                }),
+                                ' ',
+                                'Only show products in stock'
+                              )
+                            );
+                          }
+                        }
+                        return SearchBar;
+                      }));
+
+                  configurer mocha pour compiler avec babel :
+                      "test": "mocha --compilers js:babel-core/register scripts/test.config.js src/**/*.test.js"
+
+                  corriger la couverture avec babel:
+
+                      npm install istanbul@1.1.0-alpha.1
+
+                  ajoutrer le compiler babel à _mocha:
+                      "coverage": "istanbul --include-all-sources cover -x dist/** -x bower_components/** -x scripts/** -x data.js --report html node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register -R spec scripts/test.config.js src/**/*.test.js",
+
+                  tag: es6_component
+
+                  observer les erreurs liées aux propType
+
+                  installer le plugin class properties :
+                      npm install babel-plugin-transform-class-properties --save-dev
+
+                  ajouter le plugin
+                      "plugins": ["transform-class-properties"]
+
+                  corriger search-bar :
+                      (function(root, factory) {
+                        if (typeof define === 'function' && define.amd) {
+                          define(['react'], factory);
+                        } else if (typeof module === 'object' && module.exports) {
+                          module.exports = factory(require('react'));
+                        } else {
+                          root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+                        }
+                      }(this, React => {
+                        class SearchBar extends React.Component {
+                          static displayName = 'SearchBar';
+
+                          static propTypes = {
+                            filterText: React.PropTypes.string,
+                            onUserInput: React.PropTypes.func.isRequired,
+                            inStockOnly: React.PropTypes.bool
+                          };
+
+                          constructor() {
+                            super();
+                            this.handleChange = this.handleChange.bind(this);
+                          }
+
+                          handleChange() {
+                            this.props.onUserInput(
+                              this.refs.filterTextInput.value,
+                              this.refs.inStockOnlyInput.checked
+                            );
+                          }
+
+                          render() {
+                            return React.createElement('form', null,
+                              React.createElement('input', {
+                                type: 'text',
+                                placeholder: 'Search...',
+                                value: this.props.filterText,
+                                ref: 'filterTextInput',
+                                onChange: this.handleChange
+                              }),
+                              React.createElement('p', null,
+                                React.createElement('input', {
+                                  type: 'checkbox',
+                                  checked: this.props.inStockOnly,
+                                  ref: 'inStockOnlyInput',
+                                  onChange: this.handleChange
+                                }),
+                                ' ',
+                                'Only show products in stock'
+                              )
+                            );
+                          }
+                        }
+                        return SearchBar;
+                      }));
+
+                  ajouter babel-eslint pour supporter ces nouvelles fonctionnalités:
+                      npm install babel-eslint --save-dev
+
+                  ajouter le parser dans .eslintrc:
+                      "parser": "babel-eslint",
+
+                  search-bar:
+                          this || window
+
+                  tag: es6_component_static
+
+                  ajouter un preset react à babel pour utiliser Jsx :
+                      npm install babel-preset-react --save-dev
+
+                      "presets": ["es2015", "react"],
+
+                  changer la conf webstorm en JSX Harmony
+
+                  Changer searchBar:
+                      (function(root, factory) {
+                        if (typeof define === 'function' && define.amd) {
+                          define(['react'], factory);
+                        } else if (typeof module === 'object' && module.exports) {
+                          module.exports = factory(require('react'));
+                        } else {
+                          root.SearchBar = factory(root.React); // eslint-disable-line no-param-reassign
+                        }
+                      }(this || window, React => {
+                        class SearchBar extends React.Component {
+                          static displayName = 'SearchBar';
+
+                          static propTypes = {
+                            filterText: React.PropTypes.string,
+                            onUserInput: React.PropTypes.func.isRequired,
+                            inStockOnly: React.PropTypes.bool
+                          };
+
+                          constructor() {
+                            super();
+                            this.handleChange = this.handleChange.bind(this);
+                          }
+
+                          handleChange() {
+                            this.props.onUserInput(
+                              this.refs.filterTextInput.value,
+                              this.refs.inStockOnlyInput.checked
+                            );
+                          }
+
+                          render() {
+                            return (
+                              <form>
+                                <input
+                                  type="text"
+                                  placeholder="Search..."
+                                  value={this.props.filterText}
+                                  ref="filterTextInput"
+                                  onChange={this.handleChange}
+                                />
+                                <p>
+                                  <input
+                                    type="checkbox"
+                                    checked={this.props.inStockOnly}
+                                    ref="inStockOnlyInput"
+                                    onChange={this.handleChange}
+                                  />
+                                  {' '}
+                                  Only show products in stock
+                                </p>
+                              </form>
+                            );
+                          }
+                        }
+                        return SearchBar;
+                      }));
+
+                  changer search-bar.test:
+                      /* eslint-disable no-unused-expressions */
+                      import React from 'react';
+                      import { shallow, mount } from 'enzyme';
+                      import sinon from 'sinon';
+                      import SearchBar from './search-bar';
+                      import { expect, should } from 'chai';
+
+                      should();
+
+                      describe('SearchBar', () => {
+                        it('should define a placeholder', () => {
+                          const wrapper = shallow(<SearchBar />);
+                          expect(wrapper.find('input[type="text"]').props().placeholder).to.be.defined;
+                        });
+                        it('should define an user input callback on a change', () => {
+                          const onUserInput = sinon.spy();
+                          const wrapper = mount(<SearchBar onUserInput={onUserInput} filterText="test" inStockOnly />);
+                          wrapper.find('input[type="text"]').simulate('change');
+                          onUserInput.calledOnce.should.equal(true);
+                          onUserInput.calledWith('test', true).should.equal(true);
+                        });
+                      });
+
+                  tag: es6_component_jsx
+          -->
+
+          <section data-background-image="">
+              <h2>Aller plus loin</h2>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>ES6 import/export</h3>
+              <p>
+                  Spécification ES2015
+              </p>
+              <p>
+                  <small><q>Définit la façon dont doit être importé et exporté un module JavaScript</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Module loader</h3>
+              <p>
+                  Spécification ES2015 annulé
+              </p>
+              <p>
+                  <small><q>Définit la façon dont doit être chargé et exposé un module</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Module ES2015</h3>
+              <p>
+                  Peut être défini mais non utilisé
+              </p>
+              <p>
+                  <small><q>L'absence de spécification de chargement de module entraîne un problème d'utilisation de ceux-ci</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Gestionnaire de modules</h3>
+              <p>
+                  Librairies qui viendront résoudre le problème
+              </p>
+              <p>
+                  <small><q>Browserify, requirejs, systemjs, webpack... De nombreuses librairies réalisent ce travail</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+          <section>
+              <h3>Webpack</h3>
+              <p>
+                  Bien plus qu'un gestionnaire de modules
+              </p>
+              <p>
+                  <small><q>De nombreuses autres fonctionnalités lui sont associées</q></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+        </section>
+        <!-- Webpack -->
+        <section>
+            <section>
+                <h2>Webpack, module bundler</h2>
+            </section>
+            <section data-background-image="">
+                <h2>Objectif</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Intégrer Webpack au cycle de développement</h3>
+                <p>
+                    Utilisation du serveur de dev de Webpack
+                </p>
+                <p>
+                    <small><q>Il est capable de s'occuper de la transpilation des sources à la volée</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Packager une application pour la production</h3>
+                <p>
+                    Gestion des tâches nécessaires à une application web
+                </p>
+                <p>
+                    <small><q>Minification, </q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Présentation</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Webpack</h3>
+                <p>
+                    Librairie JavaScript qui package une application
+                </p>
+                <p>
+                    <small><q>Entièrement modulable grâce à un système de loaders et de plugins</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Module bundler</h3>
+                <p>
+                    Il package une application en se basant sur ses dépendances
+                </p>
+                <p>
+                    <small><q>A partir de sources de n'importe quel type, livre un ou plusieurs fichiers statiques</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>De nombreuses autres fonctionnalités</h3>
+                <p>
+                    Serveur de développement, code splitting...
+                </p>
+                <p>
+                    <small><q>Sa grande modularité permet de développer un écosystème important</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Module JavaScript</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Concept</h3>
+                <p>
+                    Exporte une ou plusieurs fonctions, objet, variables
+                </p>
+                <p>
+                    <small><q>Le traitement dans un module est isolé du reste de l'application</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Gestionnaire de modules</h3>
+                <p>
+                    Browserify, requirejs, systemjs...
+                </p>
+                <p>
+                    <small><q>Permettent de charger un module JavaScript dans un browser</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Universal module definition</h3>
+                <p>
+                    Pattern de développement d'un module JavaScript
+                </p>
+                <p>
+                    <small><q>Pattern permettant de charger un module par n'importe quel gestionnaire</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <!-- démo UMD -->
+
+            <!--
+                script:
+                    (function (root, factory) {
+                        if (typeof define === 'function' && define.amd) {
+                            // AMD. Register as an anonymous module.
+                            define(['b'], factory);
+                        } else if (typeof module === 'object' && module.exports) {
+                            // Node. Does not work with strict CommonJS, but
+                            // only CommonJS-like environments that support module.exports,
+                            // like Node.
+                            module.exports = factory(require('b'));
+                        } else {
+                            // Browser globals (root is window)
+                            root.returnExports = factory(root.b);
+                        }
+                    }(this, function (b) {
+                        //use b in some fashion.
+
+                        // Just return a value to define the module export.
+                        // This example returns an object, but the module
+                        // can return a function as the exported value.
+                        return {};
+                    }));
+            -->
+
+            <section>
+                <h3>Chargement de module par Webpack</h3>
+                <p>
+                    Webpack est capable de charger des modules AMD ou commonjs
+                </p>
+                <p>
+                    <small><q>Permet l'import de modules dans le browser</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Module non JavaScript</h3>
+                <p>
+                    Prise en charge d'autres fichiers
+                </p>
+                <p>
+                    <small><q>Grace à des loaders, Webpack peut transformer n'importe quel fichier en module JavaScript</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Loaders</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Concept</h3>
+                <p>
+                    Fonction JavaScript transformant un fichier en un autre type de fichier
+                </p>
+                <p>
+                    <small><q>Les loaders peuvent être chainés, utiliser toutes les fonctionnalités de Node, installé par npm...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Exemples</h3>
+                <p>
+                  Style-loader, css-loader, json-loader...
+                </p>
+                <p>
+                    <small><q>Chaque loader prend un fichier en paramêtre et retourne le nouveau fichier créé</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Plugins</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Concept</h3>
+                <p>
+                  Les plugins permettent de configurer webpack
+                </p>
+                <p>
+                    <small><q>Ils peuvent être utilisés pendant la phase de packaging</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Exemples</h3>
+                <p>
+                  UglifyJsPlugin, ImageminPlugin, HotModuleReplacementPlugin...
+                </p>
+                <p>
+                    <small><q>De très nombreux plugins existent pour répondre à de nombreuses problématiques</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Bundle</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Packaging de l'application</h3>
+                <p>
+                    Optimisé pour la mise en production
+                </p>
+                <p>
+                    <small><q>Exécution des différents plugins pour la préparation des sources à la mise en production</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <img src="images/what-is-webpack.png"></img>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section data-background-image="">
+                <h2>Live coding</h2>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Mise en place</h3>
+                <p>
+                    Webpack fourni de nombreux outils de développement
+                </p>
+                <p>
+                    <small><q>Intégration de transpileur, Serveur de développement et de nombreux plugins</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Babel loader</h3>
+                <p>
+                    Loader Webpack permettant l'utilisation de Babel
+                </p>
+                <p>
+                    <small><q>Utlise la configuration de Babel pour transpiler les sources</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Serveur de développement</h3>
+                <p>
+                    Serveur Express exposant les sources de l'application
+                </p>
+                <p>
+                    <small><q>Permet le hot reload, transpilation des sources à la volée, configuration d'un proxy...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>PostCSS loader</h3>
+                <p>
+                    Loader webpack intégrant la librairie PostCSS
+                </p>
+                <p>
+                    <small><q>Librairie JavaScript permettant de transpiler en CSS et l'intégration de plugins</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Hot module replacement</h3>
+                <p>
+                    Plugin permettant le rechargement d'un module
+                </p>
+                <p>
+                    <small><q>Le HMR de webpack permet de recharger un module sans recharger la page web</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Optimisation</h3>
+                <p>
+                    De nombreux plugins pour packager l'application
+                </p>
+                <p>
+                    <small><q>Minification, long-term caching, multi entry point...</q></small>
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <!-- démo mise en place webpack, intégration transpileur, serveur de dev, HMR... -->
+
+            <!--
+                migrer tout le code vers ES6
+
+                tag: start_webpack
+
+                npm install webpack babel-loader --save-dev
+
+                script:
+                    ajout config webpack:
+                        var path = require('path');
+
+                        module.exports = {
+                          entry: [
+                            path.join(__dirname, 'src', 'app.js')
+                          ],
+                          output: {
+                            path: path.join(__dirname, 'dist'),
+                            filename: 'app.bundle.js'
+                          },
+                          module: {
+                            loaders: [{
+                              test: /\.js$/,
+                              exclude: /node_modules/,
+                              loader: 'babel'
+                            }]
+                          }
+                        };
+
+                    remplacer npm run compile par webpack
+
+                    -- config dev-server --
+
+                    corriger l'index.html
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <title>Test react</title>
+                                <style>
+                                    body {
+                                        padding: 20px
+                                    }
+                                    .out-stock {
+                                        color: red;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                            <div id="container"></div>
+                            <script src="app.bundle.js"></script>
+                            </body>
+                            </html>
+
+                    npm install webpack-dev-server webpack-dev-middleware --save-dev
+
+                            var bs = require('browser-sync').create();
+                            var bodyParser = require('body-parser');
+                            var url = require('url');
+                            var dataProducts = require('../data');
+                            var exec = require('child_process').exec;
+                            var fs = require('fs-extra');
+                            var watch = require('node-watch');
+                            var path = require('path');
+                            var WebpackDevServer = require('webpack-dev-server');
+                            var webpack = require('webpack');
+                            var config = require('../webpack.config');
+                            var bsConfg = {
+                              open: false,
+                              server: {
+                                /*
+                                * Les repertoires de bases à exécuter, peut-être un array
+                                */
+                                baseDir: './dist',
+                                /*
+                                *  le point d'entré de l'application
+                                */
+                                index: 'index.html',
+                                /*
+                                *  les routes vers les ressources statiques
+                                */
+                                routes: {
+                                  '/node_modules': 'node_modules',
+                                  '/bower_components': 'bower_components'
+                                },
+                                /*
+                                *  middleware gérant les ressources serveur dynamiques json ...
+                                */
+                                middleware: [bodyParser.urlencoded({ extended: true }), function(req, res, next) {
+                                  var parsed = url.parse(req.url);
+                                  if (parsed.pathname.match(/\/api\/products/)) {
+                                    res.setHeader('Content-Type', 'application/json');
+                                    switch (req.method) {
+                                      case 'POST':
+                                      dataProducts.push(req.body);
+                                      // fall through
+                                      case 'GET':
+                                      res.end(JSON.stringify(dataProducts));
+                                      break;
+                                      default:
+                                      next();
+                                    }
+                                  } else {
+                                    next();
+                                  }
+                                }]
+                              }
+                            };
+
+                            fs.copySync(
+                              path.join(__dirname, '../src/', 'index.html'),
+                              path.join(__dirname, '../dist/', 'index.html')
+                            );
+                            fs.copySync(
+                              path.join(__dirname, '../src/', 'app.css'),
+                              path.join(__dirname, '../dist/', 'app.css')
+                            );
+
+                            bs.init(bsConfg);
+                            new WebpackDevServer(webpack(config), {
+                              publicPath: config.output.publicPath,
+                              historyApiFallback: true,
+                              proxy: {
+                                '*': 'http://localhost:3000'
+                              }
+                            }).listen(8080, 'localhost', function(err) {
+                              if (err) {
+                                console.log(err);
+                              }
+                              console.log('Listening at http://localhost:8080/');
+                              // Start Browsersync
+                            });
+
+
+                    corriger le script npm start
+                        "start": "node scripts/start",
+
+                    ouvrir : http://localhost:8080/webpack-dev-server/index.html
+
+                    ajouter une config pour le devtools :
+                        devtool: 'inline-source-map'
+
+                    -- démo loaders postcss -> css --
+
+                    npm install style-loader css-loader postcss-loader --save-dev
+
+                    configuration d'un loader :
+                        {
+                            test:   /\.css$/,
+                            loader: "style-loader!css-loader!postcss-loader"
+                        }
+
+                    ajout d'un import :
+                        import './app.css';
+
+                    ajouter une config modules au css-loader :
+                        'css-loader?modules=true',
+
+                    changer le composant product-row :
+                        if (this.props.product.stocked) {
+                          name = this.props.product.name;
+                        } else {
+                          name = React.createElement('span', { className: css['out-stock'] }, this.props.product.name);
+                        }
+
+                    -- un peu plus sur postcss --
+
+                    npm install precss autoprefixer --save-dev
+
+                    changer la configuration webpack :
+                        var precss = require('precss');
+                        var autoprefixer = require('autoprefixer');
+
+                        postcss: function() {
+                          return [precss, autoprefixer];
+                        },
+
+                    changer la config css :
+                        $outStock-color: red;
+
+                        body {
+                            padding: 20px;
+                            .out-stock {
+                                color: $outStock-color;
+                            }
+                        }
+
+                    -- config dev-server with HMR --
+
+                    npm install react-hot-loader@3.0.0-beta.1 --save-dev
+
+                    compléter la config webpack
+                        var path = require('path');
+                        var webpack = require('webpack');
+
+                        module.exports = {
+                          entry: [
+                            'react-hot-loader/patch',
+                            'webpack-dev-server/client?http://localhost:8080',
+                            'webpack/hot/only-dev-server',
+                            './src/app'
+                          ],
+                          output: {
+                            path: path.join(__dirname, 'dist'),
+                            publicPath: '/',
+                            filename: 'app.bundle.js'
+                          },
+                          plugins: [
+                            new webpack.HotModuleReplacementPlugin(),
+                            new webpack.NoErrorsPlugin()
+                          ],
+                          module: {
+                            loaders: [{
+                              test: /\.js$/,
+                              exclude: /node_modules/,
+                              loaders: ['babel']
+                            }]
+                          }
+                        };
+
+                    configurer babel
+                        {
+                          "presets": ["es2015", "react"],
+                          "plugins": ["react-hot-loader/babel", "transform-class-properties"]
+                        }
+
+                    configurer hot du webpack-dev-server :
+                    new WebpackDevServer(webpack(config), {
+                      publicPath: config.output.publicPath,
+                      historyApiFallback: true,
+                      hot: true,
+                      proxy: {
+                        '*': 'http://localhost:3000'
+                      }
+                    }).listen(8080, 'localhost', function(err) {
+                      if (err) {
+                        console.log(err);
+                      }
+                      console.log('Listening at http://localhost:8080/');
+                      // Start Browsersync
+                      bs.init(bsConfg);
+                    });
+
+                    corriger l'entry point:
+                        import React from 'react';
+                        import { render } from 'react-dom';
+                        import { AppContainer } from 'react-hot-loader';
+                        import FilterableProductTable from './components/product-table/filterable-product-table';
+
+                        render(
+                          <AppContainer>
+                            <FilterableProductTable></FilterableProductTable>
+                          </AppContainer>,
+                          document.getElementById('container')
+                        );
+
+                        if (module.hot) {
+                          module.hot.accept('./components/product-table/filterable-product-table', () => {
+                            render(
+                              <AppContainer
+                                component={require('./components/product-table/filterable-product-table').default}
+                              />,
+                              document.getElementById('container')
+                            );
+                          });
+                        }
+
+
+            -->
+
+            <!-- démo bundle pour la prod, plugin assets -->
+
+            <!--
+                script:
+                    npm install html-webpack-plugin --save-dev
+
+                    changer la config webpack :
+                        output: {
+                            path: path.join(__dirname, 'dist'),
+                            filename: '[name]-bundle-[hash].js'
+                          },
+                          plugins: [
+                            new webpack.HotModuleReplacementPlugin(),
+                            new AssetsPlugin({
+                              path: path.join(__dirname, 'dist'),
+                              filename: 'assets.json'
+                            })
+                          ],
+
+                    npm install pug --save-dev
+
+                    changer la génération du index.html:
+                        doctype html
+                        html(lang="en")
+                         head
+                          meta(charset='UTF-8')
+                          title= 'Test react'
+                         body
+                          #container
+                          script(src=main.js)
+
+                    ajouter une règle dans le middleware bs :
+                        if (parsed.pathname.match(/index\.html/)) {
+                            var main = fs.readJsonSync(path.join(__dirname, '../dist/', 'assets.json'));
+                            var index = pug.compileFile(path.join(__dirname, '../src/', 'index.pug'));
+                            res.end(index(main));
+                          }
+
+                    un petit tric dans la config webpack:
+                        var DEV = true;
+
+                        var index = 0;
+                        for (index; index < process.argv.length; index++) {
+                          if (process.argv[index] === '-p') {
+                            DEV = false;
+                            break;
+                          }
+                        }
+
+                        output: {
+                          path: path.join(__dirname, 'dist'),
+                          filename: DEV ? '[name].js?[hash]' : '[name]-bundle-[hash].js'
+                        },
+
+                    Séparation vendor et app :
+                    https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code
+
+            -->
+        </section>
+
+        <section>
+            <h2>Fin</h2>
+            <aside class="notes">
+            </aside>
+        </section>
+    </div>
+    <div id="powered" style="display: inline-block;" class="fade-in">
+        <small>Powered by reveal.js : <a href="http://lab.hakim.se/reveal-js">http://lab.hakim.se/reveal-js</a></small>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function() {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+    Reveal.addEventListener('slidechanged', function(event) {
+        if (Reveal.isFirstSlide() || Reveal.isLastSlide()) {
+            document.getElementById('powered').setAttribute('style', 'display: inline-block;');
+        } else {
+            document.getElementById('powered').setAttribute('style', 'display: none;');
+        }
+    });
+</script>
+
+</body>
+</html>
